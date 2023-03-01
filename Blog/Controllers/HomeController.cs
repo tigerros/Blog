@@ -6,7 +6,7 @@ using ViewModels;
 
 public sealed class HomeController : Controller {
 	public ViewResult Index(int? idToDelete = null) {
-		if (idToDelete != null) CasualMorningSteak.Instance.DeleteBlogPost(idToDelete.Value);
+		if (idToDelete != null) CMS.Instance.DeleteBlogPost(idToDelete.Value);
 		
 		return View(new BaseViewModel());
 	}
@@ -17,7 +17,7 @@ public sealed class HomeController : Controller {
 
 	[HttpPost]
 	public ViewResult Create(CreateViewModel formModel) {
-		CasualMorningSteak.Instance.AddBlogPost(formModel.BlogTitle, formModel.BlogContent);
+		CMS.Instance.AddBlogPost(formModel.BlogTitle, formModel.BlogContent);
 	
 		return View(formModel);
 	}
@@ -28,13 +28,13 @@ public sealed class HomeController : Controller {
 
 	[HttpPost]
 	public ViewResult Edit(EditViewModel formModel) {
-		CasualMorningSteak.Instance.EditBlogPost(formModel.Id, formModel.EditedTitle, formModel.EditedContent);
+		CMS.Instance.EditBlogPost(formModel.Id, formModel.EditedTitle, formModel.EditedContent);
 	
 		return View(formModel);
 	}
 
 	public ViewResult Detail(int id, string? newTitle = null, string? newContent = null) {
-		if (newTitle != null) CasualMorningSteak.Instance.EditBlogPost(id, newTitle, newContent);
+		if (newTitle != null) CMS.Instance.EditBlogPost(id, newTitle, newContent);
 		
 		return View(new DetailViewModel { Id = id, });
 	}

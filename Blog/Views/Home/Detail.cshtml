@@ -3,7 +3,7 @@
 
 @{
     Model.Title = "Detail";
-    BlogPost? post = CasualMorningSteak.Instance.GetBlogPost(Model.Id);
+    BlogPost? post = CMS.Instance.GetBlogPost(Model.Id);
 }
 
 @if (post == null) {
@@ -15,6 +15,6 @@
 
         <h2>@post.Title</h2>
         <small>@post.Date.ToShortDateString()</small>
-        <p>@Html.Raw(Markdown.ToHtml(CasualMorningSteak.Instance.RecoverContent(post.Content)))</p>
+        <p>@Html.Raw(Markdown.ToHtml(CMS.Instance.RecoverContent(post.Content)))</p>
     </div>
 }

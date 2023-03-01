@@ -9,7 +9,7 @@
 <h2>Feed</h2>
 
 <div id="blog-posts">
-    @foreach (BlogPost post in CasualMorningSteak.Instance.GetBlogPostsEnumerable()) 
+    @foreach (BlogPost post in CMS.Instance.GetBlogPostsEnumerable()) 
     {<div class="blog-post preview">
          <h2>@post.Title</h2>
          <small>@post.Date.ToShortDateString()</small>

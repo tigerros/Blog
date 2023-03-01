@@ -4,13 +4,13 @@ using System.Globalization;
 using System.Text;
 using Models;
 
-public sealed class CasualMorningSteak {
+public sealed class CMS {
 	private static int _highestId;
 	private readonly FileInfo _csvFile;
 
-	public static CasualMorningSteak Instance { get; set; }
+	public static CMS Instance { get; set; }
 
-	public CasualMorningSteak(string csvFilePath) {
+	public CMS(string csvFilePath) {
 		_csvFile = new FileInfo(csvFilePath);
 
 		bool first = true;

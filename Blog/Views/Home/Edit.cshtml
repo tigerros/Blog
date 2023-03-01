@@ -2,7 +2,7 @@
 
 @{
     Model.Title = "Edit";
-    var editorContent = Html.Raw(CasualMorningSteak.Instance.RecoverContent(CasualMorningSteak.Instance.GetBlogPost(Model.Id)?.Content));
+    var editorContent = Html.Raw(CMS.Instance.RecoverContent(CMS.Instance.GetBlogPost(Model.Id)?.Content));
     Console.WriteLine(editorContent);
 }
 

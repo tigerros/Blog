@@ -2,7 +2,7 @@ using System.Globalization;
 using Blog;
 
 Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-GB");
-CasualMorningSteak.Instance = new CasualMorningSteak("BlogPosts.csv");
+CMS.Instance = new CMS("BlogPosts.csv");
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

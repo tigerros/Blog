@@ -1,0 +1,20 @@
+﻿@using Markdig
+@model DetailViewModel
+
+@{
+    Model.Title = "Detail";
+    BlogPost? post = CasualMorningSteak.Instance.GetBlogPost(Model.Id);
+}
+
+@if (post == null) {
+    <p>Unable to find post with id @Model.Id.ToString().</p>
+} else {
+    <div class="blog-post detail">
+        <a asp-action="Index" asp-route-idToDelete="@Model.Id.ToString()">Delete</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id.ToString()">Edit</a>
+
+        <h2>@post.Title</h2>
+        <small>@post.Date.ToShortDateString()</small>
+        <p>@Html.Raw(Markdown.ToHtml(CasualMorningSteak.Instance.RecoverContent(post.Content)))</p>
+    </div>
+}

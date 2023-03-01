@@ -1,0 +1,40 @@
+﻿@using Markdig
+@using System.Text
+@model BaseViewModel
+
+@{
+    Model.Title = "Home";
+}
+
+<h2>Feed</h2>
+
+<div id="blog-posts">
+    @foreach (BlogPost post in CasualMorningSteak.Instance.GetBlogPostsEnumerable()) 
+    {<div class="blog-post preview">
+         <h2>@post.Title</h2>
+         <small>@post.Date.ToShortDateString()</small>
+    
+         @{
+             var htmlBuilder = new StringBuilder(post.Content.Length);
+             string[] lines = post.Content.Split("<br/>");
+
+             if (lines.Length - 1 < 2) {
+                 if (post.Content.Length >= 100) {
+                     htmlBuilder.Append(post.Content[..49] + "<br/>");
+                 
+                     if (post.Content.Length == 100) {
+                         htmlBuilder.Append(post.Content[49..]);
+                     } else {
+                         htmlBuilder.Append(post.Content[49..95]).Append("<span> ...</span>");
+                     }
+                 } else {
+                     htmlBuilder.Append(post.Content);
+                 }
+             } else {
+                 htmlBuilder.Append(lines[0]);
+             }
+         }
+         @Html.Raw(Markdown.ToHtml(htmlBuilder.ToString()))
+         <a asp-action="Detail" asp-route-id="@post.Id.ToString()">Detail</a>
+     </div>}
+</div>

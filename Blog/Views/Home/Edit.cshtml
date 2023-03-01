@@ -1,0 +1,39 @@
+﻿@model EditViewModel
+
+@{
+    Model.Title = "Edit";
+    var editorContent = Html.Raw(CasualMorningSteak.Instance.RecoverContent(CasualMorningSteak.Instance.GetBlogPost(Model.Id)?.Content));
+    Console.WriteLine(editorContent);
+}
+
+<head>
+    <link href="~/css/embedded.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+</head>
+
+<div class="background-page">@await Html.PartialAsync("Detail", new DetailViewModel { Id = Model.Id, })</div>
+
+<div class="embedded-page">
+    <form method="post">
+        <table>
+            <tr>
+                <td><label>Title</label></td>
+                <td><input type="text" asp-for="EditedTitle"/></td>
+            </tr>
+            <tr>
+                <td><label>Content</label></td>
+                <td><textarea id="content-area" asp-for="EditedContent"></textarea></td>
+            </tr>
+        </table>
+
+        <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <input type="submit" value="Edit"/>
+        <a class="back button" asp-action="Detail" asp-route-id="@Model.Id.ToString()">&lt;-</a>
+    </form>
+</div>
+
+<script>
+    let mde = new SimpleMDE({ element: document.getElementById("content-area") });
+    mde.value("@editorContent");
+</script>

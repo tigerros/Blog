@@ -1,0 +1,16 @@
+﻿.background-page {
+    opacity: 0.3;
+}
+
+.embedded-page {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    border: 2px solid black;
+    background: white;
+    z-index: 10;
+    max-height: 60%;
+    max-width: 60%;
+}

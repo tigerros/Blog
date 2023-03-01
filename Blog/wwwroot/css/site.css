@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 0.5em 0 0.5em 0;
+  outline: 8px solid black;
+  margin-bottom: 16px;
+}
+
+header > h2 {
+  display: inline;
+  margin: 1em 1em 1em 0;
+}
+
+header > h2:last-child {
+  margin: 1em 0 1em 0 !important;
+}
+
+header > h2 > a {
+  text-decoration: none;
+  font-weight: normal;
+  color: white !important;
+}
+
+header > h2 > a:hover {
+  font-weight: bold;
+}
+
+header > h2 > a.current {
+  font-weight: bold;
+}
+
+header > h2 > a.current:hover {
+  font-weight: normal;
+}
+
+.blog-post {
+  display: inline-block;
+  padding: 1em;
+  margin: 0 8px 8px 0;
+  border: 2px dashed black;
+}
+
+/* Děkuji Martinovi Macurovi za SimpleMDE styling */
+.CodeMirror {
+  height: 20vh !important;
+  min-height: unset !important;
+}
+
+.cm-scroller {
+  overflow: auto;
+}
+
+.blog-post.detail {
+  display: block;
+}
+
+.blog-post.detail > p {
+  overflow-wrap: break-word;
+}
+
+.blog-post.preview > p {
+  white-space: normal !important;
+  max-inline-size: 50ch;
+  height: 2.5em;
+}
+
+.blog-post * {
+  margin: 0;
+  padding: 0;
+}
+
+.blog-post > h3 {
+  margin-bottom: 0.5em;
+}
+
+.blog-post > small {
+  color: gray;
+}
+
+form input {
+  border-radius: 0;
+}
+
+button, form input[type=submit], a.button {
+  cursor: pointer;
+  padding: 0.5em;
+  background: black;
+  color: white;
+  border: none;
+  font-size: inherit;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+}
+
+form input[type=submit], a.back {
+  margin-top: 1em;
+}
+
+button:hover, form input[type=submit]:hover, a.button:hover {
+  text-decoration: underline;
+}
+
+form input[type=text] {
+  border: 1px solid black;
+}
+
+form input[type=text], form a {
+  font-family: inherit;
+}
